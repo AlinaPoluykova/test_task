@@ -1,19 +1,94 @@
-#news
-	color: #292929
-	.info-container
-		.info-block
+@font-face
+	font-family Arimo
+	src url('fonts/arimo/Arimo-Regular.ttf')
+.template
+	background-color #eee
+	color #757575
+	font-family Arimo
+	font-size 15px
+	padding-bottom 600px
+	h1
+		font-size 36px
+		color #292929
+	h2
+		font-size 24px
+		color #292929
+	section
+		box-shadow: 0 1px 2px rgba(0,0,0,.1);
+		background-color #fff
+		padding 20px 45px
+		margin-top 20px
+		margin-bottom 20px
+	#news
+		.info-container
+			.info-block
 
-			padding 15px
-			img
-				height: 152px
-				width: 242px
-			hr
-				width 100%
-			h2
-				font-size 24px
-				font-family: Arimo
-	.load-more
-		background-color #000
-		color #fff
-		padding 10px 20px
+				padding 15px
+				img
+					width 100%
+				hr
+					width 100%
+		.load-more
+			background-color #000
+			color #fff
+			padding 10px 20px
+			margin-right 20px
+	#contacts
+		.contact-form
+			padding 10px 20px
+			color #fff
+			background-color #5A5656
+	#icons
+		.icon-examples
+			padding-left 0
+			li
+				display inline-block
+				list-style none
+				margin-right 20px
+				span
+					margin-right 10px
+		.sprites-example
+			padding-left 0
+			li
+				list-style none
+				margin-right 35px
+				display inline-block
+			.sprite
+				width 36px
+				height 69px
+				background url('img/sprites-small.png') no-repeat
+			.stand
+				background-position -38px 0px
+			.sit
+				background-position -3px -61px
+			.run
+				background-position -127px 0px
+			.money
+				background-position -354px -67px
+			.back
+				background-position -168px -0px
+			.money2
+				background-position -333px -67px
+		.html-symbols
+			padding-left 0
+			li
+				display inline-block
+				list-style none
+				margin-right 25px
+	.nav-aside
+		nav
+			position fixed
+			top 20px
+			background-color #fff
+			padding 40px
+			box-shadow: 0 1px 2px rgba(0,0,0,.1);
+			ul
+				padding-left 0
+				li
+					border-bottom 1px solid #757575
+					list-style none
+					padding 20px
+					padding-left 0
+					a
+						color #757575
 

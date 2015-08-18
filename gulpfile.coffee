@@ -36,12 +36,17 @@ gulp.task 'img', ->
 	.src 'img/**/*'
 	.pipe gulp.dest 'dest/img'
 
+gulp.task 'fonts', ->
+	gulp
+	.src 'fonts/**/*'
+	.pipe gulp.dest 'dest/fonts'
+
 gulp.task 'watch', ->
 	gulp.watch 'source/**/*.jade', ['jade']
 	gulp.watch 'source/**/*.styl', ['stylus']
 	gulp.watch 'source/**/*.coffee', ['coffee']
 
-gulp.task 'dest', ['jade', 'stylus', 'coffee', 'bower', 'json', 'img']
+gulp.task 'dest', ['jade', 'stylus', 'coffee', 'bower', 'json', 'img', 'fonts']
 gulp.task 'dev', ['dest', 'watch']
 
 

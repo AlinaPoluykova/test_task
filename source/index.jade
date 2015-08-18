@@ -1,16 +1,174 @@
 doctype html
 html
 	head
-		link(href="main.css" rel='stylesheet' type='text/css')
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(charset="utf-8")
 		link(href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel='stylesheet' type='text/css')
+		link(href="main.css" rel='stylesheet' type='text/css')
+		link(href="mobile.css" rel='stylesheet' type='text/css')
 	body
-		section.container#news
-			.row
-				.col-md-12
-					.info-container
-			.row
-				.col-md-12
-					button.btn.load-more Показать еще
+		.template
+			.container
+				nav.top.navbar.navbar-default.hidden-lg.hidden-md
+					.navbar-header
+						button.navbar-toggle.collapsed.nav-toggle-button(type='button', data-toggle='collapse', data-target='#navigation2', aria-expanded='false')
+					#navigation2.collapse.navbar-collapse
+						ul.nav.navbar-nav
+							li.general
+								a(href="#general-requirements") Общие требования
+							li.task1
+								a(href="#news") Часть 1
+							li.task2
+								a(href="#contacts") Часть 2
+							li.task3
+								a(href="#icons") Часть 3
+							li.task4
+								a(href="#navigation") Часть 4
+							li.task5
+								a(href="#adaptative") Часть 5
+							li.task6
+								a(href="#optimization") Часть 6
+				.row
+					.col-md-8
+						section#general-requirements
+							h1 Общие требования
+							p Тестовое задание (ТЗ) состоит из нескольких частей. После выполнения каждой части необходимо фиксировать изменения коммитом на гитхабе.
+								br
+								| В верстке необходимо использовать один из CSS-препроцессоров (Sass, Less, Stylus или др.) и удобный вам инструмент для сборки проекта.
+								br
+								| Если в задании не указано как должен выглядеть блок, нужно постараться стилизовать его в стиле ТЗ, пиксельной точности не требуется
+								br
+								| текст - Arimo, 15px; color: #757575
+								br
+								| блок - box-shadow: 0 1px 2px rgba(0,0,0,.1);
+						section#news
+							h1 Часть 1: необходимо сверстать список новостей
+							p На странице отображается 5 новостей. В конце списка отображается кнопка "показать еще", при нажатии на которую в конец списка подгружается еще 5 новостей.
+								br
+								| Данные для загрузки новостей передаются в формате JSON
+							.row
+								.col-md-12
+									.info-container
+							.row
+								.col-md-12
+									button.btn.load-more Показать еще
+						section#contacts
+							h1 Часть 2: форма обратной связи
+							p При нажатии на кнопку "Обратная связь" необходимо открывать всплывающее окно с формой (Ajax), содержащей следующие поля:
+								br
+								| ФИО (обязательное поле)
+								br
+								| Телефон (обязательное поле, если не заполнено поле "Email")
+								br
+								| Email (обязательное поле, если не заполнено поле "Телефон")
+								br
+								| Текст сообщения (обязательное поле)
+								br
+								| Отправить
+								br
+								| Форма должна валидироваться на клиенте, после отправки формы, с сервера приходит ответ в формате JSON.
+							button.btn.contact-form(data-toggle="modal" data-target="#contactForm") Обратная связь
+							#contactForm.modal.fade(tabindex='-1', role='dialog')
+								.modal-dialog(role='document')
+									.modal-content
+										.modal-header
+											button.close(type='button', data-dismiss='modal', aria-label='Close')
+												span(aria-hidden='true') ×
+											h4#myModalLabel.modal-title Форма обратной связи
+										.modal-body
+											form(data-toggle='validator', role='form' action="#")
+												.form-group
+													label.control-label(for='inputName') Имя
+													input#inputName.form-control(type='text', placeholder='Ваше имя', required='' data-error='Поле обязательно для заполнения')
+													.help-block.with-errors
+												.form-group#phone-block
+													label.control-label(for='inputPhone') Телефон
+													input#inputPhone.form-control(type='tel', minlength='7', maxlength='11' placeholder='Ваш телефон', data-error='Введите валидный номер телефона')
+													.help-block.with-errors
+												.form-group#email-block
+													label.control-label(for='inputEmail') Email
+													input#inputEmail.form-control(type='email', placeholder='Email', data-error='Введите вадидный email адрес')
+													.help-block.with-errors
+												.form-group
+													label.control-label(for='inputMessage') Сообщение
+													input#inputMessage.form-control(type='text', placeholder='Ваше сообщение', data-error='Поле обязательно для заполнения' required='')
+													.help-block.with-errors
+												.form-group
+													button.btn.btn-primary#send-message(type='submit') Отправить
+						section#icons
+							h1 Часть 3: сверстать блок с иконками.
+							p На примере показать техники верстки икинок
+								br
+								| CSS-спрайты
+								br
+								| Иконочные шрифты
+								br
+								| Какие еще техники могут быть использованы?
+								br
+								| Пример блока:
+								br
+								h3 Иконочные шрифты:
+								ul.icon-examples
+									li 
+										span.glyphicon.glyphicon-camera
+										| 23 фото
+									li
+										span.glyphicon.glyphicon-eye-open
+										| 1456 просмотров
+									li
+										span.glyphicon.glyphicon-heart
+										| добавить в избранное
+								h3 Через html
+								ul.html-symbols
+									li play &#9658
+									li contrast &#9680
+									li square &#9638
+									li circle &#9711
+								h3 Спрайты
+								ul.sprites-example
+									li.sprite.stand
+									li.sprite.sit
+									li.sprite.run
+									li.sprite.money
+									li.sprite.back
+									li.sprite.money2
+
+
+						section#navigation
+							h1 Часть 4: блок навигации по ТЗ.
+							p Необходимо реализовать блок навигации по ТЗ (правая колонка).
+								br
+								| Требования к блоку:
+								br
+								| Блок должен фиксироваться при прокрутке
+								br
+								| При нажатии на ссылки в блоке, страница должна прокручиваться к соответствующей части
+						section#adaptive
+							h1 Часть 5: адаптация под устройства.
+							p Реализовать адаптацию ТЗ под планшеты и мобильные устройства
+						section#optimization
+							h1 Часть 6: оптимизация.
+							p Пройдитесь по коду, подумайте как можно его оптимизировать
+								br 
+								| Оптимизируйте изображения, минимизируйте CSS, JS
+					.col-md-4.nav-aside
+						nav.hidden-xs.hidden-sm
+							ul
+								li.general
+									a(href="#general-requirements") Общие требования
+								li.task1
+									a(href="#news") Часть 1: Список новостей
+								li.task2
+									a(href="#contacts") Часть 2: форма
+								li.task3
+									a(href="#icons") Часть 3: блок с иконками
+								li.task4
+									a(href="#navigation") Часть 4: блок навигации
+								li.task5
+									a(href="#adaptative") Часть 5: Адаптация под устройства
+								li.task6
+									a(href="#optimization") Часть 6: Оптимизация кода
 		script(src="bower_components/jquery/dist/jquery.min.js")
 		script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
+		script(src="bower_components/bootstrap-validator/dist/validator.min.js")
 		script(src="main.js")
