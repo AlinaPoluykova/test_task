@@ -2,6 +2,8 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 stylus = require 'gulp-stylus'
 coffee = require 'gulp-coffee'
+minifyCss = require 'gulp-minify-css'
+uglify = require 'gulp-uglify'
 
 gulp.task 'jade', ->
 	gulp
@@ -13,12 +15,14 @@ gulp.task 'stylus', ->
 	gulp
 	.src 'source/**/*.styl'
 	.pipe do stylus
+	.pipe minifyCss()
 	.pipe gulp.dest 'dest'
 
 gulp.task 'coffee', ->
 	gulp
 	.src 'source/**/*.coffee'
 	.pipe do coffee
+	.pipe uglify()
 	.pipe gulp.dest 'dest'
 
 gulp.task 'bower', ->
